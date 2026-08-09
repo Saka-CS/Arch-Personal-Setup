@@ -3,23 +3,23 @@ set -euo pipefail
 IFS=$'\n\t'
 
 
-options=("General", "Gaming", "Video production", "Artist")
+options=("General" "Gaming" "Video production" "Artist" "Professional")
 
 echo "Select the device purpose"
 
 for i in "${!options[@]}"; do
   echo "$((i+1)). ${options[$i]}"
-fi
+done
 
 echo ""
 
-read -p "Enter your choices seperated by space: " -a choices
+IFS=' ' read -p "Enter your choices seperated by space: " -a choices
 
-selected_option()
+selected_option=()
 for choice in "${choices[@]}"; do
   if [[ "$choice" =~ ^[0-9]+$ ]]; then
     index=$((choice-1))
-    selected_option+=("${choices[$index]}")
+    selected_option+=("${options[$index]}")
   else
      echo "Warning: Invalid option '$choice' ignored."
   fi
@@ -27,12 +27,12 @@ done
 
 echo -e "\nStarting to dowonload selection"
 
-if [[ "${#selected_option[@]}" -eq 0 ]]; do
+if [[ "${#selected_option[@]}" -eq 0 ]]; then
   echo "You didn't select any valid option"
   exit 1
 fi
 
-for opt in "${!selected_option[@]}"; do
+for opt in "${selected_option[@]}"; do
   case "$opt" in
     "General")
 
@@ -45,8 +45,8 @@ for opt in "${!selected_option[@]}"; do
       sudo pacman --noconfirm -S anki
       sudo pacman --noconfirm -S kdeconnect
       sudo pacman --noconfirm -S flatpak
-      sudo pacman --noconfirm -S code
-      
+     
+      yay -S --noconfirm --needed visual-studio-code-bin
       yay -S --noconfirm --needed pureref
       yay -S --noconfirm --needed preload
       
@@ -58,7 +58,7 @@ for opt in "${!selected_option[@]}"; do
       
       curl -fsSL https://ollama.com/install.sh | sh
       curl -fsSL https://antigravity.google/cli/install.sh | bash
-      
+
       flatpak remote-add --if-not-exists flathub https://flathub.org
       flatpak install flathub org.telegram.desktop -y
       flatpak install flathub com.orcaslicer.OrcaSlicer -y
@@ -95,6 +95,8 @@ for opt in "${!selected_option[@]}"; do
       # Add to autostart
       systemctl --user start opentabletdriver
     ;;
+    "Professional")
+      ## Professional software used only for work
+      yay -S --noconfirm --needed slack-desktop
   esac
 done
-

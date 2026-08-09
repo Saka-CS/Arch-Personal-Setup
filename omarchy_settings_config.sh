@@ -22,9 +22,9 @@ systemd-hwdb query evdev:input:b0003v0001p0001   # verify the mapping loaded
 
 # Omarchy specific changes
 # Install required software for settings change
-sudo pacman --noconfirm -S python-pipx
-pipx install hyprshade==4.0.1
-hyprshade install
+# sudo pacman --noconfirm -S python-pipx
+# pipx install hyprshade==4.0.1
+# hyprshade install
 
 
 # Disable sleep and screensaver
@@ -53,15 +53,15 @@ general {
 # }
 EOF
 
-FONT_CONF_DIR="~/.config/fontconfig/conf.d/"
+FONT_CONF_DIR="$HOME/.config/fontconfig/conf.d/"
 FONT_CONF_FILE="${FONT_CONF_DIR}99-arabic-fonts.conf"
 
-mkdir -p "$FONT_CONF_DIR"
+mkdir -p "${FONT_CONF_DIR}"
 
-if [ ! -f "$FONT_CONF_FILE" ]; then
+if [ ! -f "${FONT_CONF_FILE}" ]; then
   echo "Applying Arabic font display configuration..."
 
-  cat > "$FONT_CONF_FILE" << "EOF"
+  cat > "${FONT_CONF_FILE}" << "EOF"
 <?xml version="1.0"?>
 <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
 <fontconfig>
