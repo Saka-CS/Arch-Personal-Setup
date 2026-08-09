@@ -3,7 +3,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 
-options=("General" "Gaming" "Video production" "Artist" "Professional")
+options=("General" "Gaming" "Video production" "Artist" "Professional" "Dev")
 
 echo "Select the device purpose"
 
@@ -98,5 +98,9 @@ for opt in "${selected_option[@]}"; do
     "Professional")
       ## Professional software used only for work
       yay -S --noconfirm --needed slack-desktop
+      ;;
+      "Dev")
+      ## Development tools
+      curl -LsSf https://astral.sh/uv/install.sh | sh
   esac
 done

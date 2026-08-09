@@ -26,6 +26,9 @@ systemd-hwdb query evdev:input:b0003v0001p0001   # verify the mapping loaded
 # pipx install hyprshade==4.0.1
 # hyprshade install
 
+# Webapps PWA install
+omarchy webapp install "Gemini" "https://gemini.google.com/app?pli=1" "https://www.gstatic.com/lamda/images/gemini_sparkle_aurora_33f86dc0c0257da337c63.svg"
+
 
 # Disable sleep and screensaver
 omarchy toggle idle
