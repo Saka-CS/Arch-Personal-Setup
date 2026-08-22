@@ -89,6 +89,7 @@ for opt in "${selected_option[@]}"; do
       flatpak install flathub org.kde.kdenlive -y
       sudo pacman --noconfirm -S ladspa noise-suppression-for-voice
       sudo pacman --noconfirm -S obs-studio
+      yay -S --noconfirm --needed libtorch-cpu audacity-openvino
       yay -S --noconfirm --needed obs-multi-rtmp
     ;;
     "Artist")
