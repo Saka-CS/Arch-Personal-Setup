@@ -40,7 +40,9 @@ for opt in "${selected_option[@]}"; do
       sudo pacman --noconfirm -Syu
       
       curl -fsS https://dl.brave.com/install.sh | FLAVOR=origin sh
-      
+
+      omarchy webapp install "Gemini" "https://gemini.google.com/app?pli=1" "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Google_Gemini_icon_2025.svg/960px-Google_Gemini_icon_2025.svg.png"
+
       sudo pacman --noconfirm -S noto-fonts noto-fonts-extra
       sudo pacman --noconfirm -S anki
       sudo pacman --noconfirm -S kdeconnect

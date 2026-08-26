@@ -2,59 +2,12 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-# Generic changes
-## Change The Caps Lock Key to esc
-sudo tee /etc/udev/hwdb.d/90-caps-to-esc.hwdb >/dev/null <<'EOF'
-# Internal laptop keyboard (AT/PS2) — caps scancode 0x3a
-evdev:atkbd:*
-evdev:input:b0011v0001p0001*
-    KEYBOARD_KEY_3a=esc
-
-# USB keyboards (HID) — caps scancode 0x70039
-evdev:input:b0003v*p*
-    KEYBOARD_KEY_70039=esc
-EOF
-sudo systemd-hwdb update
-sudo udevadm trigger --action=change --subsystem-match=input
-systemd-hwdb query evdev:input:b0003v0001p0001   # verify the mapping loaded
-
-
 
 # Omarchy specific changes
 # Install required software for settings change
 # sudo pacman --noconfirm -S python-pipx
 # pipx install hyprshade==4.0.1
 # hyprshade install
-
-# Webapps PWA install
-omarchy webapp install "Gemini" "https://gemini.google.com/app?pli=1" "https://www.gstatic.com/lamda/images/gemini_sparkle_aurora_33f86dc0c0257da337c63.svg"
-
-
-# Disable sleep and screensaver
-omarchy toggle idle
-omarchy toggle screensaver
-
-cat > ~/.config/hypr/hypridle.conf << "EOF"
-general {
-    lock_cmd = omarchy-system-lock                         # lock screen and 1password
-    before_sleep_cmd = OMARCHY_LOCK_ONLY=true omarchy-system-lock    # lock before suspend without scheduling display off.
-    after_sleep_cmd = sleep 1 && omarchy-system-wake                 # delay for PAM readiness, then turn on display.
-    inhibit_sleep = 3                                      # wait until screen is locked
-}
-
-# Start screensaver after 2.5 minutes
-# listener {
-#     timeout = 150
-#     on-timeout = pidof hyprlock || omarchy-launch-screensaver
-# }
-
-# Lock system after 5 minutes (screensaver resets idle timer, so have to just do half + 2s margin)
-# listener {
-#     timeout = 152
-#     on-timeout = omarchy-system-lock
-#     on-resume = omarchy-system-wake
-# }
-EOF
 
 FONT_CONF_DIR="$HOME/.config/fontconfig/conf.d/"
 FONT_CONF_FILE="${FONT_CONF_DIR}99-arabic-fonts.conf"
