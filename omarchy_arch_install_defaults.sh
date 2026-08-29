@@ -50,6 +50,7 @@ for opt in "${selected_option[@]}"; do
       sudo pacman --noconfirm -S hunspell-en_US
      
       yay -S --noconfirm --needed visual-studio-code-bin
+      yay -S --noconfirm --needed kanata
       yay -S --noconfirm --needed hunspell-ar
       yay -S --noconfirm --needed pureref
       yay -S --noconfirm --needed preload
