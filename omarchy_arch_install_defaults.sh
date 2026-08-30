@@ -54,7 +54,9 @@ for opt in "${selected_option[@]}"; do
       yay -S --noconfirm --needed hunspell-ar
       yay -S --noconfirm --needed pureref
       yay -S --noconfirm --needed preload
-      
+
+      omarchy pkg aur add kanata
+
       sudo pacman --noconfirm -S syncthing
       systemctl --user enable --now syncthing.service
       sudo ufw allow 1714:1764/udp
