@@ -110,5 +110,6 @@ for opt in "${selected_option[@]}"; do
       "Dev")
       ## Development tools
       curl -LsSf https://astral.sh/uv/install.sh | sh
+      npm i -g pyright
   esac
 done
