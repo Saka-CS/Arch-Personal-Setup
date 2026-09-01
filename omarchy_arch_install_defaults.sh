@@ -111,5 +111,6 @@ for opt in "${selected_option[@]}"; do
       ## Development tools
       curl -LsSf https://astral.sh/uv/install.sh | sh
       npm i -g pyright
+      sudo pacman --noconfirm -S codebook-lsp
   esac
 done
