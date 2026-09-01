@@ -50,7 +50,6 @@ for opt in "${selected_option[@]}"; do
       sudo pacman --noconfirm -S flatpak
       sudo pacman --noconfirm -S hunspell-en_US
 
-      yay -S --noconfirm --needed visual-studio-code-bin
       yay -S --noconfirm --needed kanata
       yay -S --noconfirm --needed hunspell-ar
       yay -S --noconfirm --needed pureref
@@ -87,7 +86,7 @@ for opt in "${selected_option[@]}"; do
       flatpak install flathub org.nickvision.tubeconverter -y
       flatpak install flathub org.libretro.RetroArch -y
       flatpak install flathub com.pokemmo.PokeMMO -y
-      sudo pacman -S steam
+      sudo pacman --noconfirm -S steam
       # lib32-vulkan-radeon
     ;;
     "Video production")
