@@ -38,17 +38,18 @@ for opt in "${selected_option[@]}"; do
 
       ## Omarchy General
       sudo pacman --noconfirm -Syu
-      
+
       curl -fsS https://dl.brave.com/install.sh | FLAVOR=origin sh
 
       omarchy webapp install "Gemini" "https://gemini.google.com/app?pli=1" "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Google_Gemini_icon_2025.svg/960px-Google_Gemini_icon_2025.svg.png"
 
       sudo pacman --noconfirm -S noto-fonts noto-fonts-extra
+      sudo pacman --noconfirm -S rust cargo
       sudo pacman --noconfirm -S anki
       sudo pacman --noconfirm -S kdeconnect
       sudo pacman --noconfirm -S flatpak
       sudo pacman --noconfirm -S hunspell-en_US
-     
+
       yay -S --noconfirm --needed visual-studio-code-bin
       yay -S --noconfirm --needed kanata
       yay -S --noconfirm --needed hunspell-ar
@@ -62,7 +63,7 @@ for opt in "${selected_option[@]}"; do
       sudo ufw allow 1714:1764/udp
       sudo ufw allow 1714:1764/tcp
       sudo ufw reload
-      
+
       curl -fsSL https://ollama.com/install.sh | sh
       curl -fsSL https://antigravity.google/cli/install.sh | bash
 
@@ -111,6 +112,8 @@ for opt in "${selected_option[@]}"; do
       ## Development tools
       curl -LsSf https://astral.sh/uv/install.sh | sh
       npm i -g pyright
+      npm install -g @fsouza/prettierd
+      npm install --global prettier @prettier/plugin-xml
       sudo pacman --noconfirm -S codebook-lsp
   esac
 done
