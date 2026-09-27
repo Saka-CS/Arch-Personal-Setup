@@ -109,12 +109,16 @@ for opt in "${selected_option[@]}"; do
   "Dev")
     ## Development tools
     curl -LsSf https://astral.sh/uv/install.sh | sh
+
     npm i -g pyright
     npm install -g @fsouza/prettierd
     npm install --global prettier @prettier/plugin-xml
+
     sudo pacman --noconfirm -S codebook-lsp
     sudo pacman --noconfirm -S pnpm
     sudo pacman --noconfirm -S just
+
+    yay -S --noconfirm --needed android-studio
     ;;
   esac
 done
