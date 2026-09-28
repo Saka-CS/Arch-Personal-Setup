@@ -117,6 +117,12 @@ for opt in "${selected_option[@]}"; do
     sudo pacman --noconfirm -S codebook-lsp
     sudo pacman --noconfirm -S pnpm
     sudo pacman --noconfirm -S just
+    sudo pacman --noconfirm -S fvm
+    sudo pacman --noconfirm -S mesa-utils
+    fvm install stable
+    fvm global stable
+    flutter docter
+    flutter doctor --android-licenses
 
     yay -S --noconfirm --needed android-studio
     ;;
