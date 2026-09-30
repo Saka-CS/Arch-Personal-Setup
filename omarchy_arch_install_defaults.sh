@@ -125,6 +125,7 @@ for opt in "${selected_option[@]}"; do
     flutter doctor --android-licenses
 
     yay -S --noconfirm --needed android-studio
+    yay -S --noconfirm --needed postman-bin
     ;;
   esac
 done
