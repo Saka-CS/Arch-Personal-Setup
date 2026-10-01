@@ -119,10 +119,12 @@ for opt in "${selected_option[@]}"; do
     sudo pacman --noconfirm -S just
     sudo pacman --noconfirm -S fvm
     sudo pacman --noconfirm -S mesa-utils
+    sudo pacman --noconfirm -S scrcpy android-tools
     fvm install stable
     fvm global stable
     flutter docter
     flutter doctor --android-licenses
+    flutter --disable-analytics
 
     yay -S --noconfirm --needed android-studio
     yay -S --noconfirm --needed postman-bin
