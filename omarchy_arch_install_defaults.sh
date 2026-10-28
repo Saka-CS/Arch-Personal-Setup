@@ -93,6 +93,8 @@ for opt in "${selected_option[@]}"; do
     flatpak install flathub org.kde.kdenlive -y
     sudo pacman --noconfirm -S ladspa noise-suppression-for-voice
     sudo pacman --noconfirm -S obs-studio
+    sudo pacman --noconfirm -S obs-studio-plugin-browser
+
     yay -S --noconfirm --needed libtorch-cpu audacity-openvino
     yay -S --noconfirm --needed obs-multi-rtmp
     ;;
@@ -120,6 +122,7 @@ for opt in "${selected_option[@]}"; do
     sudo pacman --noconfirm -S fvm
     sudo pacman --noconfirm -S mesa-utils
     sudo pacman --noconfirm -S scrcpy android-tools
+
     fvm install stable
     fvm global stable
     flutter docter
