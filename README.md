@@ -2,3 +2,6 @@
 Contain scripts that make configuring a new Omarchy Arch install much simpler.
 
 It is mainly public so I could access it without login, but feel free to explore if you are interested.
+
+## Manual Install
+https://github.com/themanyone/3mfthumb
